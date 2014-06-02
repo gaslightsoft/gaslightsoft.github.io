@@ -1,0 +1,9 @@
+@charset "utf-8";
+body {
+	background-color:black;
+}
+#header{
+ 	background-image: url(../../styles/scripts/gradient.php?from=f00&to=00f);
+	/*background-image: url(images/trans-white.svg);*/
+	background-image: -ms-linear-gradient(top, #444444 0%, #999999 100%);
+}

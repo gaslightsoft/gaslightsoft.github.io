@@ -1,0 +1,12 @@
+@charset "utf-8";
+body {
+	background-color:black;
+}
+#header{
+	background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,255,255,1)); /*Standard*/
+}
+.app {
+	visibility:hidden;
+}
+/* CSS Document */
+
