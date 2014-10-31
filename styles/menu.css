@@ -2,6 +2,7 @@
 /* CSS Document */
 #menubar{
 	margin-top: 6px;
+	display: block;
 	padding: 2px;
 	background: rgba(255,255,255,0.2);
 	}
