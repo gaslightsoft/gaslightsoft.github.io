@@ -12,7 +12,8 @@ function hide(a){
 function revealLogin(){
 	var p = document.getElementById("prompt")
 	p.style.visibility = "visible";
-	p.width = 10;
+	p.style.width = "100%";
+	p.style.height = "100%";
 }
 function unrevealLogin(){
 	var p = document.getElementById("prompt")
