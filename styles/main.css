@@ -18,16 +18,14 @@ body {
 #header {
 	background-color: transparent;
 	display: block;
-	width: 100%;
-	height: 70px;
+	height: auto;
 }
 #login {
 	display: inline-block;
 	vertical-align: top;
 	background-color: rgba(51,51,51,0.8);
 	position:relative;
-	inline-box-align: last;
-	height: 20px;
+	height: 10px;
 	
 }
 #hook {
@@ -53,8 +51,10 @@ body {
 #prompt{
 	display: block;
 	position:relative;
-	top: 10px;
+	top: 5px;
+	bottom: 5px;
 	width: 10px;
+	height: auto;
 	visibility:hidden;
 }
 #login-username {
@@ -63,8 +63,35 @@ body {
 #login-password {
 	display: block;
 }
+#submit1 {
+	width: 50px;
+	height: 15px;
+	padding: 2px;
+	right: 2px;
+	top:5px;
+	background: white;
+	vertical-align: middle;
+	position: relative;
+}
+#submit1i{
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: rgba(255,255,255,0.5);
+	font-size:10px;
+	vertical-align: middle;
+	text-align: center;
+	width: 50px;
+	height: 15px;
+	background: white;
+	position: relative;
+}
+#submit1i:hover{
+	background: red;
+		cursor: pointer;
+}
 #content {
-	font-
+	font-color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	color:white;
 }
 footer{
 }

@@ -14,6 +14,11 @@ function revealLogin(){
 	p.style.visibility = "visible";
 	p.style.width = "100%";
 	p.style.height = "100%";
+	
+	var l = document.getElementById("login")
+	l.style.visibility = "visible";
+	l.style.width = "100%";
+	l.style.height = "100px";
 }
 function unrevealLogin(){
 	var p = document.getElementById("prompt")
