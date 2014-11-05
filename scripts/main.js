@@ -23,4 +23,10 @@ function revealLogin(){
 function unrevealLogin(){
 	var p = document.getElementById("prompt")
 	p.style.visibility = "hidden";
+	p.style.width = "10px";
+	p.style.height = "auto";
+	
+	var l = document.getElementById("login")
+	l.style.width = "auto";
+	l.style.height = "10px";
 }
