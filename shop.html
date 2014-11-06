@@ -3,6 +3,47 @@
 <head id="Head1">
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
     <link rel="stylesheet" type="text/css" href="styles/menu.css">
+      <style type="text/css">
+#shopsearchbar{
+	height: 30px;
+	width: 100%;
+	background-color: rgba(51,51,51,1);
+}
+#searchshop{
+	
+	position: relative;
+	height: 30px;
+	width: 100px;
+	background: red;
+}
+#shopsearch{
+	color:black;
+}
+#shopsearcher{
+	background: white;
+	color: black;
+}
+#shopsearcher:hover{
+	background: black;
+	color: white;
+	cursor: pointer;
+}
+#shopdrop{
+	background: white;
+	color: black;
+}
+#shopdrop:hover{
+	background: black;
+	color: white;
+	cursor: pointer;
+}
+#searchbutton{
+	
+	background:black;
+	padding: 2px;
+	color: black;
+}
+  </style>
     <title>Gaslight Shop</title>
 </head>
 <body>
@@ -17,7 +58,7 @@
       <input placeholder="Password" type="password" id="login-password" />
       <div>
        <div id="cancel1"><a onclick="unrevealLogin()">cancel</a></div>
-      <div align="right" id="submi t1" height="10px" width="50px"><div id="submit1i"  onclick="signin" >SIGN IN</div></div>
+      <div align="right" id="submit1" height="10px" width="50px"><div id="submit1i"  onclick="signin" >SIGN IN</div></div>
       </div>
     </div>
      </div>
@@ -32,18 +73,30 @@
         </div>
 </div>
 <div id="content">
-<table>
-<tr id="shopsearchbar">
-    	<td id="searchshop">
-        Search Shop
+<table width="100%" bgcolor="#666666">
+<tr width="100%"  height="10px">
+    	<td>
+       <div id="shopsearch">ShopSearch</div>
         </td>
-        <td id="shopsearch">
-<input type="text" size="30" onkeyup="showResult(this.value)" />
-<div id="livesearch"></div>
+        <td align="left">
+        <form onsubmit="">
+<input id="searchbar" type="text" size="43" width="100%" onkeyup="showResult(this.value,'data/links.xml','livesearch')" />
+</form>
     </td>
     <td>
-    	<div id="searchbutton"> Search Away!</div>
+     <div id="searchbutton"><div id="shopsearcher">Search!</div></div>
     </td>
+    <td>
+     <div id="searchbutton"><div id="shopdrop">Category</div></div>
+    </td>
+ </tr>
+ <tr>
+ <td>
+
+ </td>
+ <td>
+ <div id="livesearch"></div>
+ </td>
  </tr>
 </table>
 
@@ -54,35 +107,6 @@
 </div>
 </body>
   <footer>
-  <style type="text/css">
-#shopsearchbar{
-	height: 50px;
-	display: block;
-	position: relative;
-	width: 100%;
-	background-color: rgba(51,51,51,1);
-}
-#searchshop{
-	display: inline-block;
-	position: relative;
-	height: 50px;
-	width: 100px;
-	background: red;
-}
-#shopsearch{
-	display: inline-block;
-	position: relative;
-	height: 50px;
-	width: 100px;
-	background: red;
-}
-#shopsearcher{
-	height: 25px;
-	width: 100%;
-	position: relative;
-	display:inline-block;
-}
-  </style>
 <script type="text/javascript" src="scripts/search.js"></script>
   <script type="text/javascript" src="scripts/main.js"></script>
   </footer>
