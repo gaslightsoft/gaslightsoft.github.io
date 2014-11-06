@@ -1,8 +1,8 @@
 // JavaScript Document  <script>
-function showResult(str) {
+function showResult(str,xml,element) {
   if (str.length==0) { 
-    document.getElementById("livesearch").innerHTML="";
-    document.getElementById("livesearch").style.border="0px";
+    document.getElementById(element).innerHTML="";
+    document.getElementById(element).style.border="0px";
     return;
   }
   if (window.XMLHttpRequest) {
@@ -27,10 +27,10 @@ function showResult(str) {
 	if (n == l){
       txt=txt + "<div style='background: white;' id='" + t[i].childNodes[0].nodeValue + "'><a href='"+ u[i].childNodes[0].nodeValue +"'>" + t[i].childNodes[0].nodeValue + "</a></div>";
       }}
-      document.getElementById("livesearch").innerHTML=txt;
-      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+      document.getElementById(element).innerHTML=txt;
+      document.getElementById(element).style.border="1px solid #A5ACB2";
     }
   }
-  xmlhttp.open("GET","data/links.xml",true);
+  xmlhttp.open("GET",xml,true);
   xmlhttp.send();
 }
