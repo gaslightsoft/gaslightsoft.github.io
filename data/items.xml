@@ -3,4 +3,6 @@
 	<id>0</id>
 	<title>Floppy Disk</title>
 	<quantity>12</quantity>
+	<ppu>0.50</ppu>
+	<cur>CDN$</cur>
 </item>
