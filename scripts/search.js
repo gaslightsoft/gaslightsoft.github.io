@@ -16,8 +16,8 @@ function showResult(str,xml,element) {
 		xmlDoc=xmlhttp.responseXML;
     txt="";
     x=xmlDoc.getElementsByTagName("item");
-	t=xmlDoc.getElementsByTagName("name");
-	u=xmlDoc.getElementsByTagName("location");
+	t=xmlDoc.getElementsByTagName("title");
+	u=xmlDoc.getElementsByTagName("id");
 
     for (i=0;i<t.length;i++)
       {
@@ -25,7 +25,7 @@ function showResult(str,xml,element) {
 		var l = t[i].childNodes[0].nodeValue.toUpperCase().substr(0,str.length);
 		
 	if (n == l){
-      txt=txt + "<div style='background: white;' id='" + t[i].childNodes[0].nodeValue + "'><a href='"+ u[i].childNodes[0].nodeValue +"'>" + t[i].childNodes[0].nodeValue + "</a></div>";
+      txt=txt + "<div style='background: white;' id='" + t[i].childNodes[0].nodeValue + "'><a href='items/"+ u[i].childNodes[0].nodeValue +".html'>" + t[i].childNodes[0].nodeValue + "</a></div>";
       }}
       document.getElementById(element).innerHTML=txt;
       document.getElementById(element).style.border="1px solid #A5ACB2";
