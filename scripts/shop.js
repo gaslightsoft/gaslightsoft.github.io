@@ -42,7 +42,7 @@ function loadsItems() {
 					"Electronics",
 					"Other"];
 	for(i=0;i<categories.length;++i){
-		categoriediv=categoriediv + "<div>" + categories[i] + "</div>";
+		categoriediv=categoriediv + "<div class='catmenuitem'>" + categories[i] + "</div>";
 	}
 	categoriediv=categoriediv+""
     for (i=0;i<3;i++)
@@ -63,7 +63,7 @@ function loadsItems() {
       }
 	  }
       document.getElementById(element).innerHTML=txt;
-	  document.getElementById("categories").innerHTML="<ul>"+ categoriediv +"</ul>";
+	  document.getElementById("categories").innerHTML=categoriediv;
     }
   }
   xmlhttp.open("GET",xml,true);
