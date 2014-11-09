@@ -30,3 +30,6 @@ function unrevealLogin(){
 	l.style.width = "auto";
 	l.style.height = "10px";
 }
+function getitemnum(){
+	
+}

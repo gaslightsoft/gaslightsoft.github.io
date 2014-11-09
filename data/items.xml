@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<item>
-	<id>0</id>
-	<title>Floppy Disk</title>
-	<quantity>12</quantity>
-	<ppu>0.50</ppu>
-	<cur>CDN$</cur>
-</item>
+<items>
+	<item>
+		<id>0</id>
+		<title>Floppy Disk</title>
+		<quantity>12</quantity>
+		<ppu>0.50</ppu>
+		<cur>CDN$</cur>
+		<category>Vintage Computing</category>
+		<views>4</views>
+	</item>
+	<item>
+		<id>1</id>
+		<title>Toshiba Satellite</title>
+		<quantity>1</quantity>
+		<ppu>50</ppu>
+		<cur>CDN$</cur>
+		<category>Vintage Computing</category>
+		<views>0</views>
+	</item>
+	<item>
+		<id>2</id>
+		<title>Floppy Disk Lock Box</title>
+		<quantity>1</quantity>
+		<ppu>10</ppu>
+		<cur>CDN$</cur>
+		<category>Vintage Computing</category>
+		<views>3</views>
+	</item>
+</items>

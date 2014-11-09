@@ -26,7 +26,8 @@ function showResult(str,xml,element) {
 		
 	if (n == l){
       txt=txt + "<div style='background: white;' id='" + t[i].childNodes[0].nodeValue + "'><a href='items/"+ u[i].childNodes[0].nodeValue +".html'>" + t[i].childNodes[0].nodeValue + "</a></div>";
-      }}
+      }
+	  }
       document.getElementById(element).innerHTML=txt;
       document.getElementById(element).style.border="1px solid #A5ACB2";
     }

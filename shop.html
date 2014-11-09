@@ -46,7 +46,7 @@
   </style>
     <title>Gaslight Shop</title>
 </head>
-<body>
+<body onload="loadsItems()">
 
    <div align="right" id="header" width="100%" height="50px">
    	  <img align="left" id="gaslogo" src="images/GaslightOffice.png" height="auto" width="300px"/>
@@ -102,13 +102,25 @@
 
       <p id="para"> Welcome to the official Gaslight Software Inc. Shop!</p>
 </div>
-<div id="results">
+<div id="results" style="color:white;">
+
+	<table>
+    	<tr>
+        	<th>Popular on Shop</th>
+    		<th>Categories</th>
+    	</tr>
+       	<tr>
+        	<td><div id="pop"></div></td>
+            <td><div id="categories"></div></td>
+        </tr>
+    </table>
 </div>
 <div id="footer" width="100%" height="150px">
 
 </div>
 </body>
   <footer>
+<script type="text/javascript" src="scripts/shop.js"></script>
 <script type="text/javascript" src="scripts/search.js"></script>
   <script type="text/javascript" src="scripts/main.js"></script>
   </footer>
