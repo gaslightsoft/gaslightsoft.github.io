@@ -24,6 +24,7 @@ body {
 /*	background-image:url(../images/gaslight.png); */
 	background-color:rgba(0,0,0,1);
 	background-position:center;
+	font-family:Arial, Helvetica, sans-serif;
 }
 #gaslight-logo{visibility:visible;}
 #header {
