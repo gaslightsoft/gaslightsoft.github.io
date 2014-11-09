@@ -9,6 +9,17 @@ DEFAULT VALUES FOR ENTIRE GASLIGHT SITE
   Ecellence is here, just turn on the lights! -Gaslight Inc. 
   
 */
+catmenu{
+	background-color:red;
+	width:150px;
+	padding:2px;
+}
+catmenu div:hover{
+	background-color:white;
+	cursor:pointer;
+	width:150px;
+	padding:2px;
+}
 body {
 /*	background-image:url(../images/gaslight.png); */
 	background-color:rgba(0,0,0,1);

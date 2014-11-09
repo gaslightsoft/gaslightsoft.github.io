@@ -1,4 +1,8 @@
 // JavaScript Document  <script>
+function listItems(str,element){
+	document.getElementById(element).innerHTML=str.toString();
+}
+
 function loadsItems() {
 	xml="data/items.xml"
 	element="pop"
@@ -38,9 +42,10 @@ function loadsItems() {
 					"Electronics",
 					"Other"];
 	for(i=0;i<categories.length;++i){
-		categoriediv=categoriediv + "<li>" + categories[i] + "</li>";
+		categoriediv=categoriediv + "<div>" + categories[i] + "</div>";
 	}
-    for (i=0;i<x.length;i++)
+	categoriediv=categoriediv+""
+    for (i=0;i<3;i++)
       {
 		
 	if (true){
@@ -51,8 +56,7 @@ function loadsItems() {
 	infostyle="background-color:rgba(102,102,102,1);font-size:10px;padding:2px;height:auto;";
 	viewstyle="display:inline;";
 	buttonstyle="display:inline;";
-//	  txt=txt + "<div>" + t[i].childNodes[0].nodeValue + "<br /> Views: " + v[i].childNodes[0].nodeValue + "<br />Category: " + c[i].childNodes[0].nodeValue +"<br /><br />"+popularv[i] + "</div>"
-     // txt=txt + "<div style='background: white;' id='" + t[i].childNodes[0].nodeValue + "'><a href='items/"+ u[i].childNodes[0].nodeValue +".html'>" + t[i].childNodes[0].nodeValue + "</a></div>";
+
 	 txt=txt+"<td><div style='"+mainstyle+"' id='"+u[i].childNodes[0].nodeValue+"'><div style'"+titlestyle+"'>"+t[i].childNodes[0].nodeValue+"</div><div align='center'><img style='"+imagestyle+"' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></div>"+
    		"<div style='"+pricestyle+"'>PPU:"+ p[i].childNodes[0].nodeValue +cur[i].childNodes[0].nodeValue+"</div><div style='"+infostyle+"'><div style='"+viewstyle+"'>Views:" +v[i].childNodes[0].nodeValue+"</div><div style='"+buttonstyle+"'>Available:"+ q[i].childNodes[0].nodeValue+"</div>"+
         "</div></div><br /></td>"
