@@ -45,6 +45,18 @@
 }
 #categories{
 	text-align:left;
+	margin-left:0px;
+	margin-top:0px;
+	width:130px;
+}
+#cats{
+	padding:2px;
+	vertical-align:top;
+}
+.catmenuitem{
+}
+.catmenuitem:hover{
+	background-color:blue;
 }
   </style>
     <title>Gaslight Shop</title>
@@ -109,12 +121,12 @@
 
 	<table width="100%">
     	<tr>
-        	<th width="400px">Popular on Shop</th>
-    		<th width="50px">Categories</th>
+        	<th>Popular on Shop</th>
+    		<th>Categories</th>
     	</tr>
        	<tr>
-        	<td ><div id="pop"></div></td>
-            <td style="padding:2px" bgcolor="#00CC99"><table><div id="categories"></div></table></td>
+        	<td><div id="pop"></div></td>
+            <td id="cats"><div id="categories"></div></td>
         </tr>
     </table>
 </div>
