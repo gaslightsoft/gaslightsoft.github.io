@@ -68,7 +68,7 @@ body {
 	bottom: 5px;
 	width: 10px;
 	height: auto;
-	visibility:hidden;
+	visibility:visible;
 }
 #login-username {
 	display: block;

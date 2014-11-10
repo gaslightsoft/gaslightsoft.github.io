@@ -10,25 +10,13 @@ function hide(a){
 	document.getElementById(a).style.visibility = "hidden";
 }
 function revealLogin(){
-	var p = document.getElementById("prompt")
-	p.style.visibility = "visible";
-	p.style.width = "100%";
-	p.style.height = "100%";
-	
-	var l = document.getElementById("login")
-	l.style.visibility = "visible";
-	l.style.width = "100%";
-	l.style.height = "100px";
+	var p = document.getElementById("login");
+	p.innerHTML="<input placeholder='Username' id='login-username'/><input placeholder='Password' type='password' id='login-password' /><div><div id='cancel1'><a onclick='unrevealLogin()'>cancel</a></div><div align='right' id='submit1' height='10px' width='50px'><div id='submit1i'  onclick=signin()' >SIGN IN</div></div></div>"
 }
 function unrevealLogin(){
-	var p = document.getElementById("prompt")
-	p.style.visibility = "hidden";
-	p.style.width = "10px";
-	p.style.height = "auto";
-	
-	var l = document.getElementById("login")
-	l.style.width = "auto";
-	l.style.height = "10px";
+	var l = document.getElementById("login");
+	l.innerHTML="<div align='right' id='hook'><div id='hookie' onclick='revealLogin()'>LOGIN</div>"
+
 }
 function getitemnum(){
 	
