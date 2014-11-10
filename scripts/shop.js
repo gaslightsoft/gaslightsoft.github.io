@@ -19,7 +19,7 @@ function loadsItems() {
   xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 		xmlDoc=xmlhttp.responseXML;
-    var txt="";
+    var txt="<table><tr>";
 	var popularv=[];
 	var popular=[];
     x=xmlDoc.getElementsByTagName("item");
@@ -61,6 +61,7 @@ function loadsItems() {
    		"<div style='"+pricestyle+"'>PPU:"+ p[i].childNodes[0].nodeValue +cur[i].childNodes[0].nodeValue+"</div><div style='"+infostyle+"'><div style='"+viewstyle+"'>Views:" +v[i].childNodes[0].nodeValue+"</div><div style='"+buttonstyle+"'>Available:"+ q[i].childNodes[0].nodeValue+"</div></div></div><br /></td>"
       }
 	  }
+	  txt=txt+"</tr></table>"
       document.getElementById(element).innerHTML=txt;
 	  document.getElementById("categories").innerHTML=categoriediv;
     }
