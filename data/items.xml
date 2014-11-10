@@ -30,4 +30,14 @@
 		<description></description>
 		<views>3</views>
 	</item>
+	<item>
+		<id>3</id>
+		<title>Dell PS/2 Keyboard</title>
+		<quantity>1</quantity>
+		<ppu>10</ppu>
+		<cur>CDN$</cur>
+		<category>1</category>
+		<description></description>
+		<views>3</views>
+	</item>
 </items>

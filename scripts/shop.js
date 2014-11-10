@@ -1,10 +1,5 @@
 // JavaScript Document  <script>
 function listItems(str,cat,element){
-	if (str.length==0) { 
-    document.getElementById(element).innerHTML="";
-    document.getElementById(element).style.border="0px";
-    return;
-  }
   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
@@ -37,7 +32,7 @@ function listItems(str,cat,element){
 		} else if (cat == "all"){
 	 txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div></div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div><a>Add to Cart</a></div></td></tr></table></div></td></tr>";
 		}
-      }
+	}
 	  }
       document.getElementById(element).innerHTML=txt;
     }
