@@ -7,6 +7,7 @@
 		<ppu>0.50</ppu>
 		<cur>CDN$</cur>
 		<category>0</category>
+		<description></description>
 		<views>4</views>
 	</item>
 	<item>
@@ -16,6 +17,7 @@
 		<ppu>50</ppu>
 		<cur>CDN$</cur>
 		<category>0</category>
+		<description></description>
 		<views>0</views>
 	</item>
 	<item>
@@ -25,6 +27,7 @@
 		<ppu>10</ppu>
 		<cur>CDN$</cur>
 		<category>1</category>
+		<description></description>
 		<views>3</views>
 	</item>
 </items>
