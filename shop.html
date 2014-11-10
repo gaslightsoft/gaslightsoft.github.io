@@ -87,18 +87,18 @@
 <div id="content">
 <table width="100%" bgcolor="#666666">
 <tr width="100%"  height="10px">
-    	<td>
+    	<td  style="width:60px">
        <div id="shopsearch">ShopSearch</div>
         </td>
         <td align="left">
         <form onsubmit="listItems(searchbar.value,catselect.value,'bodybody')">
-<input id="searchbar" type="text" size="43" width="100%" onkeyup="showResult(this.value,catselect.value,'data/items.xml','livesearch')" />
+<input id="searchbar" type="text" size="43" style="width:100%" onkeyup="showResult(this.value,catselect.value,'data/items.xml','livesearch')" />
 </form>
     </td>
     <td>
-<button onclick="listItems(searchbar.value,catselect.value,'bodybody')">Search!</button>
+<button onclick="listItems(searchbar.value,catselect.value,'bodybody')" style="width:100%;">Search!</button>
     </td>
-    <td>
+    <td width="150px">
     <select id="catselect">
           <option value="all">All Categories</option>
           <option value="0">Vintage Computing</option>
