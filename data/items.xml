@@ -6,7 +6,7 @@
 		<quantity>12</quantity>
 		<ppu>0.50</ppu>
 		<cur>CDN$</cur>
-		<category>Vintage Computing</category>
+		<category>0</category>
 		<views>4</views>
 	</item>
 	<item>
@@ -15,7 +15,7 @@
 		<quantity>1</quantity>
 		<ppu>50</ppu>
 		<cur>CDN$</cur>
-		<category>Vintage Computing</category>
+		<category>0</category>
 		<views>0</views>
 	</item>
 	<item>
@@ -24,7 +24,7 @@
 		<quantity>1</quantity>
 		<ppu>10</ppu>
 		<cur>CDN$</cur>
-		<category>Vintage Computing</category>
+		<category>1</category>
 		<views>3</views>
 	</item>
 </items>

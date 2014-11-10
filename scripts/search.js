@@ -1,5 +1,5 @@
 // JavaScript Document  <script>
-function showResult(str,xml,element) {
+function showResult(str,cat,xml,element) {
   if (str.length==0) { 
     document.getElementById(element).innerHTML="";
     document.getElementById(element).style.border="0px";
@@ -17,15 +17,21 @@ function showResult(str,xml,element) {
     txt="";
     x=xmlDoc.getElementsByTagName("item");
 	t=xmlDoc.getElementsByTagName("title");
+	c=xmlDoc.getElementsByTagName("category");
 	u=xmlDoc.getElementsByTagName("id");
 
     for (i=0;i<t.length;i++)
       {
 		var n = str.toUpperCase();
 		var l = t[i].childNodes[0].nodeValue.toUpperCase().substr(0,str.length);
+		var category = c[i].childNodes[0].nodeValue;
 		
 	if (n == l){
+		if(cat == category){
       txt=txt + "<div style='background: white;' id='" + t[i].childNodes[0].nodeValue + "'><a href='items/"+ u[i].childNodes[0].nodeValue +".html'>" + t[i].childNodes[0].nodeValue + "</a></div>";
+		} else if (cat == "all"){
+			txt=txt + "<div style='background: white;' id='" + t[i].childNodes[0].nodeValue + "'><a href='items/"+ u[i].childNodes[0].nodeValue +".html'>" + t[i].childNodes[0].nodeValue + "</a></div>";
+		}
       }
 	  }
       document.getElementById(element).innerHTML=txt;
