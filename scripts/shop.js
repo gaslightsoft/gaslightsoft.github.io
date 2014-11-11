@@ -1,4 +1,42 @@
 // JavaScript Document  <script>
+function listcatItems(cat,element){
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+		xmlDoc=xmlhttp.responseXML;
+    txt="";
+    x=xmlDoc.getElementsByTagName("item");
+	t=xmlDoc.getElementsByTagName("title");
+	c=xmlDoc.getElementsByTagName("category");
+	d=xmlDoc.getElementsByTagName("description");
+	u=xmlDoc.getElementsByTagName("id");
+	p=xmlDoc.getElementsByTagName("ppu");
+	v=xmlDoc.getElementsByTagName("views");
+	cur=xmlDoc.getElementsByTagName("cur");
+	q=xmlDoc.getElementsByTagName("quantity");
+	
+    for (i=0;i<t.length;i++)
+      {
+		var category = c[i].childNodes[0].nodeValue;
+		if(cat == category){
+    txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div>"+d[i].childNodes[0].nodeValue+"</div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div><a>Add to Cart</a></div></td></tr></table></div></td></tr>";
+		} else if (cat == "all"){
+	 txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div></div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div><a>Add to Cart</a></div></td></tr></table></div></td></tr>";
+		}
+	  }
+      document.getElementById(element).innerHTML=txt;
+    }
+  }
+  xmlhttp.open("GET",xml,true);
+  xmlhttp.send();
+}
+
+// JavaScript Document  <script>
 function listItems(str,cat,element){
   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -28,9 +66,9 @@ function listItems(str,cat,element){
 		
 	if (n == l){
 		if(cat == category){
-    txt=txt + "<tr><td><a class='listItem' href='items/"+u[i].childNodes[0].nodeValue+".html'><div><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div>"+d[i].childNodes[0].nodeValue+"</div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div><a>Add to Cart</a></div></td></tr></table></div></a></td></tr>";
+    txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div>"+d[i].childNodes[0].nodeValue+"</div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div><a>Add to Cart</a></div></td></tr></table></div></td></tr>";
 		} else if (cat == "all"){
-	 txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><a class='listItem' href='items/"+u[i].childNodes[0].nodeValue+".html'><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></a></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div></div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div><a>Add to Cart</a></div></td></tr></table></div></td></tr>";
+	 txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div></div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div><a>Add to Cart</a></div></td></tr></table></div></td></tr>";
 		}
 	}
 	  }
@@ -83,7 +121,7 @@ function loadsItems() {
 					"Electronics",
 					"Other"];
 	for(i=0;i<categories.length;++i){
-		categoriediv=categoriediv + "<div class='catmenuitem'>" + categories[i] + "</div>";
+		categoriediv=categoriediv + "<div onclick='listcatItems("+c[i].childNodes[0].nodeValue+",'bodybody')' class='catmenuitem'>" + categories[i] + "</div>";
 	}
 	categoriediv=categoriediv+""
     for (i=0;i<3;i++)
@@ -98,8 +136,8 @@ function loadsItems() {
 	viewstyle="display:inline;";
 	buttonstyle="display:inline;";
 
-	 txt=txt+"<td><a class='listItem' href='items/"+u[i].childNodes[0].nodeValue+".html'><div style='"+mainstyle+"' id='"+u[i].childNodes[0].nodeValue+"'><div style'"+titlestyle+"'>"+t[i].childNodes[0].nodeValue+"</div><div  align='center'><img style='"+imagestyle+"' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></div>"+
-   		"<div style='"+pricestyle+"'>PPU:"+ p[i].childNodes[0].nodeValue +cur[i].childNodes[0].nodeValue+"</div><div style='"+infostyle+"'><div style='"+viewstyle+"'>Views:" +v[i].childNodes[0].nodeValue+"</div><div style='"+buttonstyle+"'>Available:"+ q[i].childNodes[0].nodeValue+"</div></div></div><br /></a></td>"
+	 txt=txt+"<td><div style='"+mainstyle+"' id='"+u[i].childNodes[0].nodeValue+"'><div style'"+titlestyle+"'>"+t[i].childNodes[0].nodeValue+"</div><div align='center'><img style='"+imagestyle+"' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></div>"+
+   		"<div style='"+pricestyle+"'>PPU:"+ p[i].childNodes[0].nodeValue +cur[i].childNodes[0].nodeValue+"</div><div style='"+infostyle+"'><div style='"+viewstyle+"'>Views:" +v[i].childNodes[0].nodeValue+"</div><div style='"+buttonstyle+"'>Available:"+ q[i].childNodes[0].nodeValue+"</div></div></div><br /></td>"
       }
 	  }
 	  txt=txt+"</tr></table>"
