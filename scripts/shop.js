@@ -124,7 +124,7 @@ function loadsItems() {
 		categoriediv=categoriediv + "<div onclick='listcatItems("+c[i].childNodes[0].nodeValue+",'bodybody')' class='catmenuitem'>" + categories[i] + "</div>";
 	}
 	categoriediv=categoriediv+""
-    for (i=0;i<3;i++)
+    for (i=0;i<4;i++)
       {
 		
 	if (true){
