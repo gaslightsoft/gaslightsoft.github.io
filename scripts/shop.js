@@ -149,5 +149,7 @@ function loadsItems() {
 }
 
 function decrement_number(id){
-	
+	xmlDoc=loadXMLDoc("data/items.xml");
+	x=xmlDoc.getElementsByTagName("views")[id].childNodes[0];
+	x.nodeValue="Easy Cooking";
 }
