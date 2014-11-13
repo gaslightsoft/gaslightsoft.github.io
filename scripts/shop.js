@@ -56,7 +56,7 @@ xml="data/items.xml"
 			"<input type='hidden'name='amount' value='"+p[i].childNodes[0].nodeValue+"'>"+
     		"<input type='hidden' name='currency_code' value='"+cur[i].childNodes[0].nodeValue+"'>"+
             "<input type='hidden' name='shopping_url' value='http://gaslightsoft.github.io'>"+
-			"<input type='hidden' name='undefined_quantity' value='1'/>"+
+			"<input type='hidden' name='quantity' value='6'/>"+
 			"<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>"+
 			"<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>"+
 		   "</form>"
