@@ -75,7 +75,7 @@
   </style>
     <title>Gaslight Shop</title>
 </head>
-<body onload="loadsItems()">
+<body onload="loadsItems()" >
 
    <div align="right" id="header" width="100%" height="50px">
    	  <img align="left" id="gaslogo" src="images/GaslightOffice.png" height="auto" width="300px"/>
@@ -100,7 +100,7 @@
        <div id="shopsearch">ShopSearch</div>
         </td>
         <td align="left">
-        <form onsubmit="listItems(searchbar.value,catselect.value,'bodybody')">
+        <form action="stuff.php" method="post">
 <input id="searchbar" type="text" size="43" style="width:100%" onkeyup="showResult(this.value,catselect.value,'data/items.xml','livesearch')" />
 </form>
     </td>
@@ -218,10 +218,10 @@
 </div>
 <br />
 <div id="footer" width="100%" height="150px">
-	<table id="table" width="100%" class="table">
+<table id="table" width="100%" class="table">
 	<tr>
     	<th>
-        	<div>Software</div>
+       	  <div>Software</div>
         </th>
         <th>
         	<div>Office</div>

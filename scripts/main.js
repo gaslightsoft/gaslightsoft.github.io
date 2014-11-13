@@ -21,3 +21,11 @@ function unrevealLogin(){
 function getitemnum(){
 	
 }
+function loadFooter(){
+	var row1=["Software","Office","Services","Help"];
+	var footer="<table id='table' width='100%' class='table'><tr>"
+	for(i=0;i<4;i++){
+		footer=footer+"<th>"+row1[i]+"</th>";
+	}
+	document.getElementById("footer").innerHTML=footer;
+}
