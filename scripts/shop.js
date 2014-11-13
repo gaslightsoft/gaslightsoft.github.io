@@ -125,7 +125,7 @@ function loadsItems() {
 	categoriediv=categoriediv+ "<div onclick=\"listcatItems('cat','all','"+xml+"','bodybody')\" class='catmenuitem'>All Items</div>";
     for (i=0;i<4;i++)
       {
-	q[i].childNodes[0].nodeValue="0";
+
 	if (true){
 	mainstyle="background-color:rgba(204,204,204,1);font-family:Arial, Helvetica, sans-serif;width: 200px;padding:2px;position:relative;";
 	titlestyle="text-align:center;background-color:rgba(51,51,51,1);height:25px;width:150px;";
@@ -140,7 +140,6 @@ function loadsItems() {
       }
 	  }
 	  txt=txt+"</tr></table>"
-	  
       document.getElementById(element).innerHTML=txt;
 	  document.getElementById("categories").innerHTML=categoriediv;
     }
@@ -150,8 +149,24 @@ function loadsItems() {
 }
 
 function decrement_number(id){
-	xmlDoc=loadXMLDoc("data/items.xml");
-	x=xmlDoc.getElementsByTagName("views")[0].childNodes[0];
-	x.nodeValue="Dick"
-	document.getElementById('bodybody').innerHTML=x.nodeValue;
+	if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+		xmlDoc=xmlhttp.responseXML;
+		newel=xmlDoc.createElement("edition");
+	for (i=0;i<4;i++)
+      {
+		x=xmlDoc.getElementsByTagName("item");
+		x[i].appendChild(newel);
+	  }
+
+  }	
+  }
+  xmlhttp.open("POST","data/items.xml",true);
+  xmlhttp.send();
 }
