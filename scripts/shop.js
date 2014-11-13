@@ -150,8 +150,8 @@ function loadsItems() {
 
 function decrement_number(id){
 	xmlDoc=loadXMLDoc("data/items.xml");
-	x=xmlDoc.getElementsByTagName("views")[0].childNodes[0];
-	for (i=0;i<t.length;i++){
-			x[id].nodeValue="Easy Cooking";
+	x=xmlDoc.getElementsByTagName("views");
+	for (i=0;i<x.length;i++){
+			x[id].childNodes[0].nodeValue="Easy Cooking";
 	}
 }
