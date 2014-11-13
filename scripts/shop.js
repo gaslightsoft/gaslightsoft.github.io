@@ -1,5 +1,9 @@
 // JavaScript Document  <script>
-function listcatItems(cat,element){
+function listcatItems(str,cat,xml,element){
+  if (str.length==0) { 
+    document.getElementById(element).innerHTML="";
+    return;
+  }
   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
@@ -13,21 +17,22 @@ function listcatItems(cat,element){
     x=xmlDoc.getElementsByTagName("item");
 	t=xmlDoc.getElementsByTagName("title");
 	c=xmlDoc.getElementsByTagName("category");
-	d=xmlDoc.getElementsByTagName("description");
 	u=xmlDoc.getElementsByTagName("id");
-	p=xmlDoc.getElementsByTagName("ppu");
-	v=xmlDoc.getElementsByTagName("views");
-	cur=xmlDoc.getElementsByTagName("cur");
-	q=xmlDoc.getElementsByTagName("quantity");
-	
+
+
     for (i=0;i<t.length;i++)
       {
+		var n = str.toUpperCase();
+		var l = t[i].childNodes[0].nodeValue.toUpperCase().substr(0,str.length);
 		var category = c[i].childNodes[0].nodeValue;
+		
+	if (true){
 		if(cat == category){
-    txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div>"+d[i].childNodes[0].nodeValue+"</div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div><a>Add to Cart</a></div></td></tr></table></div></td></tr>";
+       txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div>"+"</div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div><a>Add to Cart</a></div></td></tr></table></div></td></tr>";
 		} else if (cat == "all"){
 	 txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div></div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div><a>Add to Cart</a></div></td></tr></table></div></td></tr>";
 		}
+      }
 	  }
       document.getElementById(element).innerHTML=txt;
     }
@@ -38,6 +43,9 @@ function listcatItems(cat,element){
 
 // JavaScript Document  <script>
 function listItems(str,cat,element){
+xml="data/items.xml"
+  if (str.length==0) { 
+  }
   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
@@ -48,6 +56,8 @@ function listItems(str,cat,element){
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 		xmlDoc=xmlhttp.responseXML;
     txt="";
+	dol="";
+
     x=xmlDoc.getElementsByTagName("item");
 	t=xmlDoc.getElementsByTagName("title");
 	c=xmlDoc.getElementsByTagName("category");
@@ -60,15 +70,30 @@ function listItems(str,cat,element){
 	
     for (i=0;i<t.length;i++)
       {
+		if (cur[i].childNodes[0].nodeValue == "CAD" ||cur[i].childNodes[0].nodeValue == "USD"){
+			dol="$";
+		}
 		var n = str.toUpperCase();
 		var l = t[i].childNodes[0].nodeValue.toUpperCase().substr(0,str.length);
+		var addtocart = "<form target='paypal' action='https://www.paypal.com/cgi-bin/webscr' method='post'>"+
+            "<input type='hidden' name='business' value='g.lee.gaslightsoftware@gmail.com'>"+
+       		"<input type='hidden' name='cmd' value='_cart'>"+
+            "<input type='hidden' name='add' value='1' />"+
+            "<input type='hidden' name='item_name' value='"+t[i].childNodes[0].nodeValue+"'>"+
+			"<input type='hidden'name='amount' value='"+p[i].childNodes[0].nodeValue+"'>"+
+    		"<input type='hidden' name='currency_code' value='"+cur[i].childNodes[0].nodeValue+"'>"+
+            "<input type='hidden' name='shopping_url' value='http://gaslightsoft.github.io'>"+
+            "<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif' border='0' name='submit'  onclick='getContinueShoppingURL(this.form)' alt='PayPal - The safer, easier way to pay online!'>"+
+            "<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>"+
+        "</form>"
+
+
+	if (n == l || n.length==0){
 		var category = c[i].childNodes[0].nodeValue;
-		
-	if (n == l){
 		if(cat == category){
-    txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div>"+d[i].childNodes[0].nodeValue+"</div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div><a>Add to Cart</a></div></td></tr></table></div></td></tr>";
+    txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div>"+"</div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+dol+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div>"+addtocart+"</div></td></tr></table></div></td></tr>";
 		} else if (cat == "all"){
-	 txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div></div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div><a>Add to Cart</a></div></td></tr></table></div></td></tr>";
+	 txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div></div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+dol+" "+cur[i].childNodes[0].nodeValue+"</div><div><a>Buy It Now!<a></div><div>"+addtocart+"</div></td></tr></table></div></td></tr>";
 		}
 	}
 	  }
@@ -121,9 +146,9 @@ function loadsItems() {
 					"Electronics",
 					"Other"];
 	for(i=0;i<categories.length;++i){
-		categoriediv=categoriediv + "<div onclick='listcatItems("+c[i].childNodes[0].nodeValue+",'bodybody')' class='catmenuitem'>" + categories[i] + "</div>";
+		categoriediv=categoriediv + "<div onclick=\"listcatItems('cat','"+i+"','"+xml+"','bodybody')\" class='catmenuitem'>" + categories[i] + "</div>";
 	}
-	categoriediv=categoriediv+""
+	categoriediv=categoriediv+ "<div onclick=\"listcatItems('cat','all','"+xml+"','bodybody')\" class='catmenuitem'>All Items</div>";
     for (i=0;i<4;i++)
       {
 		

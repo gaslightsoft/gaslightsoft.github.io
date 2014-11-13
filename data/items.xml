@@ -5,7 +5,7 @@
 		<title>Floppy Disk</title>
 		<quantity>12</quantity>
 		<ppu>0.50</ppu>
-		<cur>CDN$</cur>
+		<cur>CAD</cur>
 		<category>0</category>
 		<description></description>
 		<views>4</views>
@@ -15,7 +15,7 @@
 		<title>Toshiba Satellite</title>
 		<quantity>1</quantity>
 		<ppu>50</ppu>
-		<cur>CDN$</cur>
+		<cur>CAD</cur>
 		<category>0</category>
 		<description></description>
 		<views>0</views>
@@ -25,7 +25,7 @@
 		<title>Floppy Disk Lock Box</title>
 		<quantity>1</quantity>
 		<ppu>10</ppu>
-		<cur>CDN$</cur>
+		<cur>CAD</cur>
 		<category>1</category>
 		<description></description>
 		<views>3</views>
@@ -35,8 +35,8 @@
 		<title>Dell PS/2 Keyboard</title>
 		<quantity>1</quantity>
 		<ppu>10</ppu>
-		<cur>CDN$</cur>
-		<category>1</category>
+		<cur>CAD</cur>
+		<category>2</category>
 		<description></description>
 		<views>3</views>
 	</item>
