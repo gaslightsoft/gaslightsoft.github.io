@@ -35,6 +35,7 @@ xml="data/items.xml"
 		if (cur[i].childNodes[0].nodeValue == "CAD" ||cur[i].childNodes[0].nodeValue == "USD"){
 			dol="$";
 		}
+
 		var n = str.toUpperCase();
 		var l = t[i].childNodes[0].nodeValue.toUpperCase().substr(0,str.length);
 		var addtocart = "<form target='paypal' action='https://www.paypal.com/cgi-bin/webscr' method='post'>"+
@@ -45,7 +46,8 @@ xml="data/items.xml"
 			"<input type='hidden'name='amount' value='"+p[i].childNodes[0].nodeValue+"'>"+
     		"<input type='hidden' name='currency_code' value='"+cur[i].childNodes[0].nodeValue+"'>"+
             "<input type='hidden' name='shopping_url' value='http://gaslightsoft.github.io'>"+
-            "<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif' border='0' name='submit'  onclick='getContinueShoppingURL(this.form)' onclick='decrement_number('"+u[i].childNodes[0].nodeValue+"')' alt='PayPal - The safer, easier way to pay online!'>"+
+            			"<input type='hidden' name='quantity' value='document.getElementById('qty_"+i+"').value'/>"+
+						"<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif' border='0' name='submit'  onclick='getContinueShoppingURL(this.form)' onclick='decrement_number('"+u[i].childNodes[0].nodeValue+"')' alt='PayPal - The safer, easier way to pay online!'>"+
             "<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>"+
         "</form>"
 		
@@ -56,18 +58,17 @@ xml="data/items.xml"
 			"<input type='hidden'name='amount' value='"+p[i].childNodes[0].nodeValue+"'>"+
     		"<input type='hidden' name='currency_code' value='"+cur[i].childNodes[0].nodeValue+"'>"+
             "<input type='hidden' name='shopping_url' value='http://gaslightsoft.github.io'>"+
-			"<input type='hidden' name='quantity' value=''/>"+
+			"<input type='hidden' name='quantity' value='document.getElementById('qty_"+i+"').value'/>"+
 			"<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif' border='0' name='submit' onclick='decrement_number('"+u[i].childNodes[0].nodeValue+"')' alt='PayPal - The safer, easier way to pay online!'>"+
 			"<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>"+
 		   "</form>"
 
-
 	if (n == l || n.length==0){
 		var category = c[i].childNodes[0].nodeValue;
 		if(cat == category){
-    txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div>"+"</div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+dol+" "+cur[i].childNodes[0].nodeValue+"</div><div>"+buyitnow+"</div><div>"+addtocart+"</div></td></tr></table></div></td></tr>";
+    txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div>"+"</div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+dol+" "+cur[i].childNodes[0].nodeValue+"</div><div>"+buyitnow+"</div><div>"+addtocart+"</div><div><input placeholder='Qty' type='number' size='4' id='qty_"+i+"' /></div></td></tr></table></div></td></tr>";
 		} else if (cat == "all"){
-	 txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div></div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+dol+" "+cur[i].childNodes[0].nodeValue+"</div><div>"+buyitnow+"</div><div>"+addtocart+"</div></td></tr></table></div></td></tr>";
+	 txt=txt + "<tr><td><div ><table><tr style='vertical-align:top;'><td><img style='height:100px' src='images/"+u[i].childNodes[0].nodeValue+".jpg' /></td><td style='width:1000px'><div>"+t[i].childNodes[0].nodeValue+"</div><div style='display:inline;'>Views: "+v[i].childNodes[0].nodeValue+" "+"</div><div style='display:inline;'>Available: "+q[i].childNodes[0].nodeValue+" </div><div></div></td><td style='width:170px'><div>"+p[i].childNodes[0].nodeValue+dol+" "+cur[i].childNodes[0].nodeValue+"</div><div>"+buyitnow+"</div><div>"+addtocart+"</div><div><input placeholder='Qty' type='number' size='4' id='qty_"+i+"' /></div></td></tr></table></div></td></tr>";
 		}
 	}
 	  }
