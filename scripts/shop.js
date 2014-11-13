@@ -46,7 +46,7 @@ xml="data/items.xml"
 			"<input type='hidden'name='amount' value='"+p[i].childNodes[0].nodeValue+"'>"+
     		"<input type='hidden' name='currency_code' value='"+cur[i].childNodes[0].nodeValue+"'>"+
             "<input type='hidden' name='shopping_url' value='http://gaslightsoft.github.io/shop.html'>"+
-						"<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif' border='0' name='submit'  onclick='getContinueShoppingURL(this.form)' onclick='decrement_number('"+u[i].childNodes[0].nodeValue+"')' alt='PayPal - The safer, easier way to pay online!'>"+
+						"<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif' border='0' name='submit'  onclick='getContinueShoppingURL(this.form)' onclick='decrement_number("+u[i].childNodes[0].nodeValue+")' alt='PayPal - The safer, easier way to pay online!'>"+
             "<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>"+
         "</form>"
 		
@@ -125,7 +125,7 @@ function loadsItems() {
 	categoriediv=categoriediv+ "<div onclick=\"listcatItems('cat','all','"+xml+"','bodybody')\" class='catmenuitem'>All Items</div>";
     for (i=0;i<4;i++)
       {
-		
+	q[i].childNodes[0].nodeValue="0";
 	if (true){
 	mainstyle="background-color:rgba(204,204,204,1);font-family:Arial, Helvetica, sans-serif;width: 200px;padding:2px;position:relative;";
 	titlestyle="text-align:center;background-color:rgba(51,51,51,1);height:25px;width:150px;";
@@ -140,6 +140,7 @@ function loadsItems() {
       }
 	  }
 	  txt=txt+"</tr></table>"
+	  
       document.getElementById(element).innerHTML=txt;
 	  document.getElementById("categories").innerHTML=categoriediv;
     }
@@ -150,8 +151,7 @@ function loadsItems() {
 
 function decrement_number(id){
 	xmlDoc=loadXMLDoc("data/items.xml");
-	x=xmlDoc.getElementsByTagName("views");
-	for (i=0;i<x.length;i++){
-			x[id].childNodes[0].nodeValue="Easy Cooking";
-	}
+	x=xmlDoc.getElementsByTagName("views")[0].childNodes[0];
+	x.nodeValue="Dick"
+	document.getElementById('bodybody').innerHTML=x.nodeValue;
 }
