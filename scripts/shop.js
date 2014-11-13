@@ -45,7 +45,7 @@ xml="data/items.xml"
 			"<input type='hidden'name='amount' value='"+p[i].childNodes[0].nodeValue+"'>"+
     		"<input type='hidden' name='currency_code' value='"+cur[i].childNodes[0].nodeValue+"'>"+
             "<input type='hidden' name='shopping_url' value='http://gaslightsoft.github.io'>"+
-            "<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif' border='0' name='submit'  onclick='getContinueShoppingURL(this.form)' onclick='decrement_number("+t[i].childNodes[0].nodeValue+")' alt='PayPal - The safer, easier way to pay online!'>"+
+            "<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif' border='0' name='submit'  onclick='getContinueShoppingURL(this.form)' onclick='decrement_number('"+u[i].childNodes[0].nodeValue+"')' alt='PayPal - The safer, easier way to pay online!'>"+
             "<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>"+
         "</form>"
 		
@@ -57,7 +57,7 @@ xml="data/items.xml"
     		"<input type='hidden' name='currency_code' value='"+cur[i].childNodes[0].nodeValue+"'>"+
             "<input type='hidden' name='shopping_url' value='http://gaslightsoft.github.io'>"+
 			"<input type='hidden' name='quantity' value=''/>"+
-			"<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif' border='0' name='submit' onclick='decrement_number("+t[i].childNodes[0].nodeValue+")' alt='PayPal - The safer, easier way to pay online!'>"+
+			"<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif' border='0' name='submit' onclick='decrement_number('"+u[i].childNodes[0].nodeValue+"')' alt='PayPal - The safer, easier way to pay online!'>"+
 			"<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>"+
 		   "</form>"
 
@@ -146,4 +146,8 @@ function loadsItems() {
   }
   xmlhttp.open("GET",xml,true);
   xmlhttp.send();
+}
+
+function decrement_number(id){
+	
 }
