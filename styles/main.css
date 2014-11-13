@@ -159,3 +159,12 @@ background-color: rgba(255,255,255,0.4);
 	height:300px;
 
 }
+.searchitem{
+	color:red;
+	background-color:black;	
+}
+.searchitem:hover{
+	cursor:pointer;
+	color:white;
+	background-color:red;	
+}

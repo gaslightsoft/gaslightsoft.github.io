@@ -28,9 +28,9 @@ function showResult(str,cat,xml,element) {
 		
 	if (n == l){
 		if(cat == category){
-      txt=txt + "<div style='background: white;' id='" + t[i].childNodes[0].nodeValue + "'><a href='items/"+ u[i].childNodes[0].nodeValue +".html'>" + t[i].childNodes[0].nodeValue + "</a></div>";
+      txt=txt + "<div class='searchitem' id='" + t[i].childNodes[0].nodeValue + "' a onclick='item_page("+ u[i].childNodes[0].nodeValue +")'>" + t[i].childNodes[0].nodeValue + "</div>";
 		} else if (cat == "all"){
-			txt=txt + "<div style='background: white;' id='" + t[i].childNodes[0].nodeValue + "'><a href='items/"+ u[i].childNodes[0].nodeValue +".html'>" + t[i].childNodes[0].nodeValue + "</a></div>";
+			txt=txt + "<div class='searchitem' id='" + t[i].childNodes[0].nodeValue+"' a onclick='item_page("+ u[i].childNodes[0].nodeValue +")'>" + t[i].childNodes[0].nodeValue + "</div>";
 		}
       }
 	  }

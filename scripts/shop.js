@@ -148,8 +148,10 @@ function loadsItems() {
   xmlhttp.send();
 }
 
-function decrement_number(id){
-	if (window.XMLHttpRequest) {
+function item_page(id){
+xml="data/items.xml"
+element="bodybody"
+  if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
   } else {  // code for IE6, IE5
@@ -157,16 +159,56 @@ function decrement_number(id){
   }
   xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-		xmlDoc=loadXMLDoc("data/items.xml");
-		newel=xmlDoc.createElement("edition");
-	for (i=0;i<4;i++)
-      {
-		x=xmlDoc.getElementsByTagName("item");
-		x[i].appendChild(newel);
-	  }
+		xmlDoc=xmlhttp.responseXML;
+    txt="";
+	dol="";
 
-  }	
+    x=xmlDoc.getElementsByTagName("item");
+	t=xmlDoc.getElementsByTagName("title");
+	c=xmlDoc.getElementsByTagName("category");
+	d=xmlDoc.getElementsByTagName("description");
+	u=xmlDoc.getElementsByTagName("id");
+	p=xmlDoc.getElementsByTagName("ppu");
+	v=xmlDoc.getElementsByTagName("views");
+	cur=xmlDoc.getElementsByTagName("cur");
+	q=xmlDoc.getElementsByTagName("quantity");
+	
+    for (i=0;i<t.length;i++)
+      {
+		if(u[i].childNodes[0].nodeValue == id){
+		if (cur[i].childNodes[0].nodeValue == "CAD" ||cur[i].childNodes[0].nodeValue == "USD"){
+			dol="$";
+		}
+		txt="<table><tr><td colspan='3'><div>"+t[i].childNodes[0].nodeValue+"</div></td></tr><tr><td width='100'>"+
+		"<img src='/images/"+id+".jpg' /></td><td valign='top'><div>Views:"+v[i].childNodes[0].nodeValue+"</div><div>Available:"+q[i].childNodes[0].nodeValue+"</div>"+
+    	"</td><td valign='top'><div>"+p[i].childNodes[0].nodeValue+dol+"</div><div><form target='paypal' action='https://www.paypal.com/cgi-bin/webscr' method='post'>"+
+            "<input type='hidden' name='business' value='g.lee.gaslightsoftware@gmail.com'>"+
+       		"<input type='hidden' name='cmd' value='_cart' />"+
+            "<input type='hidden' name='add' value='1' />"+
+            "<input type='hidden' name='item_name' value='"+t[i].childNodes[0].nodeValue+"'>"+
+			"<input type='hidden'name='amount' value='"+p[i].childNodes[0].nodeValue+"'>"+
+    		"<input type='hidden' name='currency_code' value='"+cur[i].childNodes[0].nodeValue+"'>"+
+            "<input type='hidden' name='shopping_url' value='http://gaslightsoft.github.io/shop.html'>"+
+						"<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif' border='0' name='submit'  onclick='getContinueShoppingURL(this.form)' onclick='decrement_number("+u[i].childNodes[0].nodeValue+")' alt='PayPal - The safer, easier way to pay online!'>"+
+            "<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>"+
+        "</form></div>"+
+		"<div><form target='paypal' action='https://www.paypal.com/cgi-bin/webscr' method='post'>"+
+            "<input type='hidden' name='business' value='g.lee.gaslightsoftware@gmail.com'>"+
+       		"<input type='hidden' name='cmd' value='_xclick'>"+
+            "<input type='hidden' name='item_name' value='"+t[i].childNodes[0].nodeValue+"'>"+
+			"<input type='hidden'name='amount' value='"+p[i].childNodes[0].nodeValue+"'>"+
+    		"<input type='hidden' name='currency_code' value='"+cur[i].childNodes[0].nodeValue+"'>"+
+            "<input type='hidden' name='shopping_url' value='http://gaslightsoft.github.io/shop.html'>"+
+			"<input type='number' width='5' size='2' placeholder='Qty' name='quantity' value=''/>"+
+			"<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif' border='0' name='submit' onclick='decrement_number("+u[i].childNodes[0].nodeValue+")' alt='PayPal - The safer, easier way to pay online!'>"+
+			"<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>"+
+		   "</form></div></td></tr><tr><td colspan='3'>"+
+    	"<div>"+"</div></td></tr></table>"
+
+	  }}
+      document.getElementById(element).innerHTML=txt;
+    }
   }
-  xmlhttp.open("POST","data/items.xml",true);
+  xmlhttp.open("GET",xml,true);
   xmlhttp.send();
 }
