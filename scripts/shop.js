@@ -157,7 +157,7 @@ function decrement_number(id){
   }
   xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-		xmlDoc=xmlhttp.responseXML;
+		xmlDoc=loadXMLDoc("data/items.xml");
 		newel=xmlDoc.createElement("edition");
 	for (i=0;i<4;i++)
       {
